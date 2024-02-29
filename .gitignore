@@ -5,9 +5,9 @@ target/
 !**/src/test/**/target/
 
 ### Files ###
-/summary/
-/notefiles/
-/exports/
+/summary/*
+/notefiles/*
+/exports/*
 
 ### STS ###
 .apt_generated
