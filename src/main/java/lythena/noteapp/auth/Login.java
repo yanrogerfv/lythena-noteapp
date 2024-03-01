@@ -1,2 +1,4 @@
-package lythena.noteapp.auth;public class Login {
+package lythena.noteapp.auth;
+
+public class Login {
 }
