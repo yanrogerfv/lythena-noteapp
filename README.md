@@ -12,7 +12,7 @@ starting with the backend made in Java and Spring.
 ## Authorization
 
 The security aspect of the Lythena comes from Spring Security and its 
-athorizations. First, you shall not access any part of the application without 
+authorizations. First, you shall not access any part of the application without 
 logging in, the only exceptions are the windows that allows someone to create a 
 proper login for the user to start. Some restrictions are:
 
