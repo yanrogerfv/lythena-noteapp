@@ -4,9 +4,26 @@ This is a personal project of mine to make a note-taking application,
 starting with the backend made in Java and Spring.
 
 ## Summary
-1. [Notes](#Notes)
-2. [Concepts](#Concepts)
+1. [Authorization](#Authorization)
+2. [Notes](#Notes)
+3. [Concepts](#Concepts)
 10. [Outro](#Outro)
+
+## Authorization
+
+The security aspect of the Lythena comes from Spring Security and its 
+athorizations. First, you shall not access any part of the application without 
+logging in, the only exceptions are the windows that allows someone to create a 
+proper login for the user to start. Some restrictions are:
+
+- You can't use an username that already exists;
+- Your username must have between 4 and 16 characters;
+- Your password must have at least 8 characters;
+- The username and the password can have any letter, number or
+symbol, with the ";" character being the only unusable one);
+
+Once created a new user, it is stored in the repository aswell as locally, in 
+an `usuarios.txt` file with the crypted keys of that user. 
 
 ## Notes:
 
@@ -44,7 +61,6 @@ to the final version of the application:
 - Groups;
 - Task notes;
 - Sharing notes;
-- Authentication by user and password;
 - Ambient music;
 
 
