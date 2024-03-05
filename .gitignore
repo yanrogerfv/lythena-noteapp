@@ -8,6 +8,7 @@ target/
 /summary/*
 /notefiles/*
 /exports/*
+/usuarios/*
 
 ### STS ###
 .apt_generated
