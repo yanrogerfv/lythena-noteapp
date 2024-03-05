@@ -11,4 +11,10 @@ public class UserApp {
     private String username;
     private String password;
     private Roles role;
+
+    public String getUserSpecs(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(username).append(";").append(password).append(";").append(role.ordinal());
+        return stringBuilder.toString();
+    }
 }

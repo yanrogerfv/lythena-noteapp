@@ -1,0 +1,4 @@
+admin;$2a$10$u0UEUXXj8uT2WS21w.pytePgFMdXVM1Rum0MBW3NOukxNWeRFAJxe;0
+Atlas;$2a$10$8DkzDlSEyit0pxrmy4Szf.jBY0o45DXvHpMRyG9lecB/oSa7fr1MW;0
+user;$2a$10$cKImzds1ltBYCosvAQTTd.Vn4H2tJEJDiRYFIq1kWIUKXhuMijaZW;1
+Teste;$2a$10$CvmdYmcZvg21Y2vjMw5OeO8HwwazVB2eRslGYebLS5PNFQH1iQqgG;1

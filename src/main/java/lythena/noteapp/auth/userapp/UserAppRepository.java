@@ -4,17 +4,16 @@ import lythena.noteapp.config.EntityNotFoundException;
 import lythena.noteapp.config.RogueException;
 import lythena.noteapp.notes.Note;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class UserAppRepository {
     private final List<UserApp> users;
-    private final File usersTxt = new File("/usuarios/usuarios.txt");
+    private final File usersTxt = new File("usuarios/usuarios.txt");
 
     public UserAppRepository() {
         users = new ArrayList<>();
@@ -30,7 +29,7 @@ public class UserAppRepository {
 
                     String username = split[0];
                     String codedPassword = split[1];
-                    Integer role = Integer.getInteger(split[2]);
+                    Integer role = Integer.valueOf(split[2]);
 
                     addUserFromFile(username, codedPassword, role);
                 }
@@ -39,12 +38,12 @@ public class UserAppRepository {
             }
         }
         else {
-            addUserFromInput(new UserAppInput("user", "password", 1));
-            addUserFromInput(new UserAppInput("admin", "password", 0));
-            addUserFromInput(new UserAppInput("Atlas", "World", 0));
             try {
                 //noinspection ResultOfMethodCallIgnored
                 usersTxt.createNewFile();
+                addUserFromInput(new UserAppInput("admin", "password", 0));
+                addUserFromInput(new UserAppInput("Atlas", "World", 0));
+                addUserFromInput(new UserAppInput("user", "password", 1));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -75,6 +74,16 @@ public class UserAppRepository {
         UserApp userApp = new UserApp(input.getUsername(), input.getPassword(), role);
         userApp.setPassword(bCryptPasswordEncoder.encode(input.getPassword()));
         users.add(userApp);
+
+        try {
+            StringBuilder string = new StringBuilder(Files.readString(usersTxt.toPath()));
+            FileWriter userWriter = new FileWriter(usersTxt);
+            String content = string.append(userApp.getUserSpecs().concat("\n")).toString();
+            userWriter.write(content);
+            userWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

@@ -4,6 +4,7 @@ import lythena.noteapp.auth.userapp.UserApp;
 import lythena.noteapp.auth.userapp.UserAppRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,7 +39,7 @@ public class SecurityConfiguration {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("v0/login/*");
+        return (web) -> web.ignoring().requestMatchers("v0/login/**");
     }
 
 

@@ -26,12 +26,12 @@ public class LoginController {
     }
 
     @PostMapping("/newuser")
-    public void createUser(@RequestParam String username, @RequestParam String password, Integer role){
-        interactor.createUser(new UserAppInput(username, password, role));
+    public void createUser(@RequestBody UserAppInput input){
+        interactor.createUser(input);
     }
 
     @DeleteMapping("/delete")
-    public void deleteUser(@RequestParam String username, @RequestParam String password){
+    public void deleteUser(@RequestBody String username, String password){
         interactor.removeUser(username, password);
     }
 
